@@ -3,7 +3,7 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 cask "finderhover" do
   version "1.3.1"
-  sha256 "d1de1b9a6612899ddb8166db09f0fd924efa6a7e993682df6c805de4b6b9d339"
+  sha256 "c249c4dead7c3a0be686ce572f95589cd3d3735763599897feb9341f5e527d37"
 
   url "https://github.com/KoukeNeko/FinderHover/releases/download/v#{version}/FinderHover.app.zip"
   name "FinderHover"
