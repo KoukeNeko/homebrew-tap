@@ -27,6 +27,6 @@ cask "finderhover" do
 
   # Documentation: https://docs.brew.sh/Cask-Cookbook#stanza-zap
   zap trash: [
-    "~/Library/Preferences/dev.doeshing.FinderHover.plist",
+    "~/Library/Preferences/dev.koukeneko.FinderHover.plist",
   ]
 end
