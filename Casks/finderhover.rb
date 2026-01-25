@@ -25,6 +25,13 @@ cask "finderhover" do
                    args: ["-cr", "#{appdir}/FinderHover.app"]
   end
 
+  uninstall quit: "dev.koukeneko.FinderHover",
+            script: {
+              executable: "/usr/bin/tccutil",
+              args:       ["reset", "Accessibility", "dev.koukeneko.FinderHover"],
+              sudo:       false,
+            }
+
   # Documentation: https://docs.brew.sh/Cask-Cookbook#stanza-zap
   zap trash: [
     "~/Library/Preferences/dev.koukeneko.FinderHover.plist",
