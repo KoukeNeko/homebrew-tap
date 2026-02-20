@@ -27,8 +27,8 @@ cask "finderhover" do
 
   uninstall quit: "dev.koukeneko.FinderHover",
             script: {
-              executable: "/usr/bin/tccutil",
-              args:       ["reset", "Accessibility", "dev.koukeneko.FinderHover"],
+              executable: "/bin/sh",
+              args:       ["-c", "/usr/bin/tccutil reset Accessibility dev.koukeneko.FinderHover; exit 0"],
               sudo:       false,
             }
 
