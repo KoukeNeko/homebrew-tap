@@ -3,7 +3,7 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 cask "finderhover" do
   version "1.8.0"
-  sha256 "61ef6f3fb0aad421b46cc3f7145e65d21255efe746e6938cdf62c9957499570c"
+  sha256 "6ed20a6be0affbe635ee6e4d7cacdeddd8fc8b6adc07257fb78f4c4d21adb5e3"
 
   url "https://github.com/KoukeNeko/FinderHover/releases/download/v#{version}/FinderHover.app.zip"
   name "FinderHover"
@@ -19,11 +19,6 @@ cask "finderhover" do
   depends_on macos: ">= :sonoma"
 
   app "FinderHover.app"
-
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/FinderHover.app"]
-  end
 
   uninstall quit: "dev.koukeneko.FinderHover",
             script: {
