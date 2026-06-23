@@ -3,7 +3,7 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 cask "finderhover" do
   version "1.9.0"
-  sha256 "7164bd9738332928b00cbf5dc4fa0cb9013b9196181447394c25979436b3a5c7"
+  sha256 "2c3603acabc5b5cc669b735be48651fdf90d16494b9ca94bab460ca47ffbbfe1"
 
   url "https://github.com/KoukeNeko/FinderHover/releases/download/v#{version}/FinderHover.app.zip"
   name "FinderHover"
@@ -20,10 +20,17 @@ cask "finderhover" do
 
   app "FinderHover.app"
 
+  # Clear the cached GitHub contributors list on install so the in-app About page
+  # refetches a fresh list (a one-time stale cache used to hide new contributors).
+  postflight do
+    system_command "/bin/sh",
+                   args: ["-c", "/usr/bin/defaults delete dev.koukeneko.FinderHover cachedContributors >/dev/null 2>&1; exit 0"]
+  end
+
   uninstall quit: "dev.koukeneko.FinderHover",
             script: {
               executable: "/bin/sh",
-              args:       ["-c", "/usr/bin/tccutil reset Accessibility dev.koukeneko.FinderHover; exit 0"],
+              args:       ["-c", "/usr/bin/defaults delete dev.koukeneko.FinderHover cachedContributors >/dev/null 2>&1; /usr/bin/tccutil reset Accessibility dev.koukeneko.FinderHover; exit 0"],
               sudo:       false,
             }
 
