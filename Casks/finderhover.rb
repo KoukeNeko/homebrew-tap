@@ -2,8 +2,8 @@
 #                https://docs.brew.sh/Adding-Software-to-Homebrew#cask-stanzas
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 cask "finderhover" do
-  version "1.8.1"
-  sha256 "ffdea0f3134775a7928fbe2d1de00997b037ba6846569a1cb3dcedf2e53d3679"
+  version "1.9.0"
+  sha256 "7164bd9738332928b00cbf5dc4fa0cb9013b9196181447394c25979436b3a5c7"
 
   url "https://github.com/KoukeNeko/FinderHover/releases/download/v#{version}/FinderHover.app.zip"
   name "FinderHover"
