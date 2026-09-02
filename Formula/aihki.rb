@@ -1,7 +1,7 @@
 class Aihki < Formula
   desc "Independent command-line client for Taiga"
   homepage "https://github.com/KoukeNeko/aihki"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
 
   livecheck do
@@ -11,23 +11,23 @@ class Aihki < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.0/aihki_0.3.0_darwin_arm64.tar.gz"
-      sha256 "897251a40fcd090ebcda87e035d56fcb0019ba8dcb0296547183f4fedf57802e"
+      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.1/aihki_0.3.1_darwin_arm64.tar.gz"
+      sha256 "f7f2fe0b690606192884af8087b5aadc3c8ae0f2f5b6d72941169833cef0bd3a"
     end
     on_intel do
-      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.0/aihki_0.3.0_darwin_amd64.tar.gz"
-      sha256 "a27ce02e66edc9f0d5556353605a2ad3a393654a6149c87be127bf40b1e5fbd2"
+      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.1/aihki_0.3.1_darwin_amd64.tar.gz"
+      sha256 "5ab08ad68645880187f93de72b69c63c3b38e4f6775ac49e8711286b746ba221"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.0/aihki_0.3.0_linux_arm64.tar.gz"
-      sha256 "1829eee911c339dfb0643397cae75c8568b5441d9f67e1598b867e7ec7e99d44"
+      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.1/aihki_0.3.1_linux_arm64.tar.gz"
+      sha256 "eb6f4f9813ecd95d42b882e0c55f3d01f73e687a858dafe489607bea2fd522fa"
     end
     on_intel do
-      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.0/aihki_0.3.0_linux_amd64.tar.gz"
-      sha256 "99f6bec7adeff7e2b80a57f0018f6dcc8e2ef7a55d801fda36ff2a742ea3491f"
+      url "https://github.com/KoukeNeko/aihki/releases/download/v0.3.1/aihki_0.3.1_linux_amd64.tar.gz"
+      sha256 "de68f996679f1f65a0a575a1be3bb3a14313f29d9aeb6194067f7867c9e3c7d7"
     end
   end
 
