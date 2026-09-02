@@ -5,7 +5,7 @@ cask "finderhover@beta" do
 
   url "https://github.com/KoukeNeko/FinderHover/releases/download/v#{version}/FinderHover.app.zip"
   name "FinderHover (Beta)"
-  desc "Show file information on hover in Finder - Beta version with Quick Look extension"
+  desc "Show file information on hover in Finder, with Quick Look extension"
   homepage "https://github.com/KoukeNeko/FinderHover"
 
   livecheck do
@@ -14,7 +14,7 @@ cask "finderhover@beta" do
     strategy :page_match
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "FinderHover.app"
 
@@ -23,7 +23,5 @@ cask "finderhover@beta" do
                    args: ["-cr", "#{appdir}/FinderHover.app"]
   end
 
-  zap trash: [
-    "~/Library/Preferences/dev.koukeneko.FinderHover.plist",
-  ]
+  zap trash: "~/Library/Preferences/dev.koukeneko.FinderHover.plist"
 end

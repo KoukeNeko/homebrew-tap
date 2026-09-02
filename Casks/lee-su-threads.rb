@@ -13,6 +13,8 @@ cask "lee-su-threads" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "Lee-Su-Threads.app"
 
   postflight do

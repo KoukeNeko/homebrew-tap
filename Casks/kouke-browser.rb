@@ -5,7 +5,7 @@ cask "kouke-browser" do
 
   url "https://github.com/KoukeNeko/kouke-browser/releases/download/v#{version}/Kouke-Browser.app.zip"
   name "Kouke Browser"
-  desc "A minimal, fast web browser for macOS"
+  desc "Minimal, fast web browser"
   homepage "https://github.com/KoukeNeko/kouke-browser"
 
   livecheck do
@@ -13,7 +13,7 @@ cask "kouke-browser" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "kouke browser.app"
 
@@ -22,7 +22,5 @@ cask "kouke-browser" do
                    args: ["-cr", "#{appdir}/kouke browser.app"]
   end
 
-  zap trash: [
-    "~/Library/Preferences/dev.doeshing.kouke-browser.plist",
-  ]
+  zap trash: "~/Library/Preferences/dev.doeshing.kouke-browser.plist"
 end
