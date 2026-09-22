@@ -1,7 +1,7 @@
 class Taiga < Formula
   desc "Independent command-line client for Taiga"
   homepage "https://github.com/KoukeNeko/taiga-cli"
-  version "0.7.0"
+  version "0.8.0"
   license "MIT"
 
   livecheck do
@@ -11,23 +11,23 @@ class Taiga < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.7.0/taiga_0.7.0_darwin_arm64.tar.gz"
-      sha256 "51f214ef1c6a958fb7d99c963490e0a802305437da531167a24f4a3b71803d60"
+      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.8.0/taiga_0.8.0_darwin_arm64.tar.gz"
+      sha256 "0240b799a9202e5fa28ce03a76c862386262b14b7199090188fda04a51ccdbd3"
     end
     on_intel do
-      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.7.0/taiga_0.7.0_darwin_amd64.tar.gz"
-      sha256 "92464e6f7a450b55155411b56819bf09340b4d44722d98ac2a8696710958073f"
+      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.8.0/taiga_0.8.0_darwin_amd64.tar.gz"
+      sha256 "fb8a3221b25b7a01e6278b1bb2fd0c3c0059afc976cb8bc307859c8c0c34ed56"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.7.0/taiga_0.7.0_linux_arm64.tar.gz"
-      sha256 "757ed02e0f2c3dbef1d6f71594868452a6eea854e5cb75329d8ba2876947ed2e"
+      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.8.0/taiga_0.8.0_linux_arm64.tar.gz"
+      sha256 "f0ca917b0414f122e55aca5073617ca04845d3456979cf8a9b74a7c9eabac04d"
     end
     on_intel do
-      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.7.0/taiga_0.7.0_linux_amd64.tar.gz"
-      sha256 "91adb19de7c326fe4049d80cabd37b34597b2dd064a02e5d5d5a44d885059022"
+      url "https://github.com/KoukeNeko/taiga-cli/releases/download/v0.8.0/taiga_0.8.0_linux_amd64.tar.gz"
+      sha256 "4b501026bebec1608c130270328b4977a959742f4f520f3bb62fdc41380562e6"
     end
   end
 
