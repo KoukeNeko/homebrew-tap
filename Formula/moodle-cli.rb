@@ -1,7 +1,7 @@
 class MoodleCli < Formula
   desc "Independent Moodle command-line client for learners and educators"
   homepage "https://github.com/KoukeNeko/Moodle-CLI"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
   livecheck do
@@ -11,23 +11,23 @@ class MoodleCli < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.2/moodle-cli_0.1.2_darwin_arm64.tar.gz"
-      sha256 "39fca6baba95743a4e5571a0782d7a3f47094d77caa05440e7c99dbf9d42cda3"
+      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.3/moodle-cli_0.1.3_darwin_arm64.tar.gz"
+      sha256 "6a032eefc307d1a37e152c21585f7ae9998612f87464b666a8a529156f729b70"
     end
     on_intel do
-      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.2/moodle-cli_0.1.2_darwin_amd64.tar.gz"
-      sha256 "a90f497a6862de8f48b04ba8050a2cd1d427428d02ce178f5148a8a9b8c02b6a"
+      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.3/moodle-cli_0.1.3_darwin_amd64.tar.gz"
+      sha256 "ae3613e959161c6c21248d7ae79101f54e7bbc9954746e3c157266cbb9fcf124"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.2/moodle-cli_0.1.2_linux_arm64.tar.gz"
-      sha256 "328661eb558f6f3aa888616d1b5225956d3351325706f443339c99f3a99a332e"
+      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.3/moodle-cli_0.1.3_linux_arm64.tar.gz"
+      sha256 "fe7ac68c5b09c1103eb6e6beeb62dcc311b7c956f6ac3f759416b02f7658d0da"
     end
     on_intel do
-      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.2/moodle-cli_0.1.2_linux_amd64.tar.gz"
-      sha256 "64be163cf5378b0eacab6b7fd130217c754336bb9fe4bed87d8ccb95216645ed"
+      url "https://github.com/KoukeNeko/Moodle-CLI/releases/download/v0.1.3/moodle-cli_0.1.3_linux_amd64.tar.gz"
+      sha256 "740d6e7c09a2dc8261fc4bbd7911b7dd2f063d34ccd83076b133f98b12b103dd"
     end
   end
 
