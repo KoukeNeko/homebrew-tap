@@ -1,7 +1,7 @@
 class SharecodexCli < Formula
   desc "Track shared Claude Code and Codex subscription quota"
   homepage "https://github.com/KoukeNeko/ShareCodex"
-  version "0.3.28"
+  version "0.3.29"
 
   livecheck do
     url :stable
@@ -12,10 +12,10 @@ class SharecodexCli < Formula
 
   if Hardware::CPU.arm?
     url "https://github.com/KoukeNeko/ShareCodex/releases/download/v#{version}/sharecodex-linux-arm64.tar.gz"
-    sha256 "d7d12b279ae79763e2b4d9829db1bc5f05cb3637c8582ca5c6c4f1a6f838ea6e"
+    sha256 "eb7fe385d40d9327fd952bd8e64eb4544653e0ef460e4bb8e5bbcf75d043ee3b"
   else
     url "https://github.com/KoukeNeko/ShareCodex/releases/download/v#{version}/sharecodex-linux-amd64.tar.gz"
-    sha256 "0d7f63bac7ee214a5c79b37567b44cd445b40de7cdec40c4d8c8887fed024de7"
+    sha256 "a4e1f89e4c8401192ebd30cd1b76a6e887c82eccc2dbc8e3a1e5084d6be1a5cd"
   end
 
   def install
