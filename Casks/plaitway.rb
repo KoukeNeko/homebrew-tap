@@ -1,6 +1,6 @@
 cask "plaitway" do
-  version "0.3.0"
-  sha256 "bb3263ee81b8a467853fddee498eb7de2468661b2c25d9cb512c8ecdbc698b4d"
+  version "0.3.1"
+  sha256 "c284920bd0357ea653298b8a3c2ad925b4b3cd11777151059b0b990631bc1711"
 
   url "https://github.com/KoukeNeko/Plaitway/releases/download/v#{version}/Plaitway-#{version}.zip"
   name "Plaitway"
@@ -13,7 +13,7 @@ cask "plaitway" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "Plaitway.app"
   binary "#{appdir}/Plaitway.app/Contents/Resources/bin/plaitway"
