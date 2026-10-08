@@ -1,6 +1,6 @@
 cask "plaitway" do
-  version "0.3.3"
-  sha256 "fe0b3122b9a52ecc51c2fa10b5327e34503c5c0fb804adde0f82eb2e614481df"
+  version "0.3.4"
+  sha256 "bfc27cb4891674b251d7d456089ababb5cbc3c9182bcce230844fab808f8b651"
 
   url "https://github.com/KoukeNeko/Plaitway/releases/download/v#{version}/Plaitway-#{version}.zip"
   name "Plaitway"
