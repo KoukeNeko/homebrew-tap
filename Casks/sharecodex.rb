@@ -1,6 +1,6 @@
 cask "sharecodex" do
-  version "0.3.61"
-  sha256 "1a745ea937ad9623324af0820d4c79554e58036b4c923b8e85a79aa1a737bf68"
+  version "0.3.62"
+  sha256 "09a6819bf6f53bb09702ca6a91c399920ff806e007d55493d0d15ba341640e79"
 
   url "https://github.com/KoukeNeko/ShareCodex/releases/download/v#{version}/ShareCodex-macos-universal.zip"
   name "ShareCodex"
