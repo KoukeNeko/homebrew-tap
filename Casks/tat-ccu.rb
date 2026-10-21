@@ -1,8 +1,8 @@
 cask "tat-ccu" do
-  version "0.1.1"
-  sha256 "07bc6c3d2fb4c480e652c182e275dc56acf1d33a157bc4da7de901b5ffbff527"
+  version "0.1.2"
+  sha256 "d8e79826b95e096a93108eeb5d7e0ea6f4464631a6941011eda6005dfb0f8c9d"
 
-  url "https://github.com/KoukeNeko/TAT-CCU/releases/download/v#{version}/TAT-CCU-#{version}.zip"
+  url "https://github.com/KoukeNeko/TAT-CCU/releases/download/v#{version}/TAT-CCU-#{version}-macos.zip"
   name "TAT CCU"
   desc "Timetable, eCourse2 and campus services of National Chung Cheng University"
   homepage "https://github.com/KoukeNeko/TAT-CCU"
