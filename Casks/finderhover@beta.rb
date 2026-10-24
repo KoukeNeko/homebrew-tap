@@ -1,11 +1,11 @@
 # Documentation: https://docs.brew.sh/Cask-Cookbook
 cask "finderhover@beta" do
-  version "1.5.0-beta.1"
-  sha256 "dffe2fbb9dff6d5a89d6f1278cb258ec33979d4cfab98208cd34c3b4b30af967"
+  version "1.10.0-beta.1"
+  sha256 "d40bbdcd3fcab8f859e93fae6fc67f2b08c3af79a94387dd6b91b54d68c3a2e9"
 
   url "https://github.com/KoukeNeko/FinderHover/releases/download/v#{version}/FinderHover.app.zip"
   name "FinderHover (Beta)"
-  desc "Show file information on hover in Finder, with Quick Look extension"
+  desc "Show file information on hover in Finder"
   homepage "https://github.com/KoukeNeko/FinderHover"
 
   livecheck do
@@ -17,11 +17,6 @@ cask "finderhover@beta" do
   depends_on macos: :sonoma
 
   app "FinderHover.app"
-
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/FinderHover.app"]
-  end
 
   zap trash: "~/Library/Preferences/dev.koukeneko.FinderHover.plist"
 end
