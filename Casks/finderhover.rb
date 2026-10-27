@@ -20,15 +20,6 @@ cask "finderhover" do
 
   app "FinderHover.app"
 
-  # Clear the cached GitHub contributors list on install so the in-app About page
-  # refetches a fresh list (a one-time stale cache used to hide new contributors).
-  postflight do
-    system_command "/bin/sh",
-                   args: ["-c",
-                          "/usr/bin/defaults delete dev.koukeneko.FinderHover " \
-                          "cachedContributors >/dev/null 2>&1; exit 0"]
-  end
-
   uninstall quit:   "dev.koukeneko.FinderHover",
             script: {
               executable: "/bin/sh",
