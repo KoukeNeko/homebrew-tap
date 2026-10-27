@@ -1,7 +1,7 @@
 # Documentation: https://docs.brew.sh/Cask-Cookbook
 cask "finderhover@beta" do
-  version "1.10.0"
-  sha256 "7805bf4529aee02b15c1bec7ade97804d587f07ab67d64496c0f646ef5fa9dfd"
+  version "1.10.1"
+  sha256 "8e00a907438dec8c2d993b1f3bab828bc000f289611186589c38435b2ee2b58c"
 
   url "https://github.com/KoukeNeko/FinderHover/releases/download/v#{version}/FinderHover.app.zip"
   name "FinderHover (Beta)"
