@@ -1,6 +1,6 @@
 cask "tat-ccu" do
-  version "0.1.14"
-  sha256 "3a6dab7acb5c150ef9b5ef58d62ed1f2eb9a838ab2f1e1c4eafbb6cd30c5599a"
+  version "0.1.15"
+  sha256 "977a4017b6578aef5c91338a00cfe8c69beda3c6492fefad13616e282b193297"
 
   url "https://github.com/KoukeNeko/TAT-CCU/releases/download/v#{version}/TAT-CCU-#{version}-macos.zip"
   name "TAT CCU"
