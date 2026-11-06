@@ -1,6 +1,6 @@
 cask "project-key" do
-  version "0.2.1"
-  sha256 "579816e794075676a0fbff9c988224bac50164ddbe6264ac40ac29e0dc04e57b"
+  version "0.2.2"
+  sha256 "4e9ec2774f1e6f5ea0ad933d7e6c492bcfe8528ee8b6140d5180136c500ae7b8"
 
   url "https://github.com/KoukeNeko/Project-Key/releases/download/v#{version}/ProjectKey-#{version}-macos.zip"
   name "Project Key"
