@@ -1,8 +1,8 @@
 class Fcitx5Projectkey < Formula
   desc "Zhuyin input method for Fcitx5"
   homepage "https://github.com/KoukeNeko/Project-Key"
-  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "f594f43a138959e2598440e564e37caa670e526d75558d6ffa91f02c098f33c4"
+  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "3009bcbb4565de86f54c2482e2127416bdcf962ec54df4a6c4c0be6f4efae508"
   license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later"]  # the program; bigram.bin and chars.bin; data.txt
 
   livecheck do
@@ -20,17 +20,17 @@ class Fcitx5Projectkey < Formula
   end
 
   resource "data.txt" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-06/data.txt"
-    sha256 "7e329eb5a496969dfd7df34910e88f40d2fae7baacdc89f687658f855a6c3a5a"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-07/data.txt"
+    sha256 "98b7a871007023af6847e93e85481598149b4444aabecf9fb2dd037aef99f76a"
   end
 
   resource "bigram.bin" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-06/bigram.bin"
-    sha256 "f329ecbd4d0502787e5bb3d4697cda76147a20b999ee08b36f041aec6843036f"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-07/bigram.bin"
+    sha256 "547f3b61c0ce80e2ccbc2706efb265fc82bc6b820fef6fd6495d7bf2ce0065fb"
   end
 
   resource "chars.bin" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-06/chars.bin"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-07/chars.bin"
     sha256 "734e7bf0f6a890af9c74db310e20dd8f7a212c4e81bb9155b69ac915453bcbfd"
   end
 
@@ -44,10 +44,11 @@ class Fcitx5Projectkey < Formula
     (buildpath/"mcbopomofo").install resource("mcbopomofo")
     # CMakeLists.txt installs them, with their notice, from the trainer's cache.
     %w[data.txt bigram.bin chars.bin].each { |file| (buildpath/"tools/bigram-trainer/.cache").install resource(file) }
+    (buildpath/"tools/bigram-trainer/.cache/models-version.txt").write "2026-11-07\n"  # as fetch-models.sh records it
     system "make", "-C", "mcbopomofo/Source/Data", "data.txt"
     system "cmake", "-S", "platforms/linux", "-B", "build", "-G", "Ninja",
            "-DCMAKE_C_COMPILER=/usr/bin/cc", "-DCMAKE_CXX_COMPILER=/usr/bin/c++",
-           "-DMCBOPOMOFO=#{buildpath}/mcbopomofo", *std_cmake_args
+           "-DMCBOPOMOFO=#{buildpath}/mcbopomofo", "-DREQUIRE_MODELS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     %w[ComposerTest ControllerTest].each { |test| system "build/#{test}", "mcbopomofo/Source/Data/data.txt" }
     system "cmake", "--install", "build"
@@ -60,12 +61,13 @@ class Fcitx5Projectkey < Formula
       data=${XDG_DATA_HOME:-$HOME/.local/share}
       for file in fcitx5/addon/projectkey.conf fcitx5/inputmethod/projectkey.conf fcitx5/themes/projectkey \\
                   gnome-shell/extensions/project-key@koukeneko.github.io applications/projectkey-settings.desktop \\
-                  icons/hicolor/scalable/apps/fcitx-projectkey.svg; do
+                  icons/hicolor/scalable/apps/fcitx-projectkey.svg \\
+                  icons/hicolor/scalable/apps/fcitx-projectkey-symbolic.svg; do
         mkdir -p "$data/$(dirname "$file")"
         rm -rf "${data:?}/$file"
         ln -s "#{opt_share}/$file" "$data/$file"
       done
-      echo "Linked Project Key into $data. Restart Fcitx5 (fcitx5 -r) and add Project Key in its input methods."
+      echo "Linked Project Key into $data. Restart Fcitx5 (fcitx5 -r), then run projectkey-settings --welcome to add it."
     SH
     chmod 0755, bin/"projectkey-link"
   end
