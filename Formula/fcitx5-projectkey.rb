@@ -1,9 +1,9 @@
 class Fcitx5Projectkey < Formula
   desc "Zhuyin input method for Fcitx5"
   homepage "https://github.com/KoukeNeko/Project-Key"
-  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "dc1ceb847864e2bce4951c65d9b87f22747a6487069cdb408d245bf917846589"
-  license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later"]  # the program; bigram.bin and chars.bin; data.txt
+  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "4c141ac5504cf30b6ca44a8ed15aa7111c2a554cd1e1a8d9e037e2972f7424b0"
+  license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later"]  # the program; bigram.bin, chars.bin and sentence.bin; data.txt
 
   livecheck do
     url :stable
@@ -20,18 +20,23 @@ class Fcitx5Projectkey < Formula
   end
 
   resource "data.txt" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-07/data.txt"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-09/data.txt"
     sha256 "98b7a871007023af6847e93e85481598149b4444aabecf9fb2dd037aef99f76a"
   end
 
   resource "bigram.bin" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-07/bigram.bin"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-09/bigram.bin"
     sha256 "547f3b61c0ce80e2ccbc2706efb265fc82bc6b820fef6fd6495d7bf2ce0065fb"
   end
 
   resource "chars.bin" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-07/chars.bin"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-09/chars.bin"
     sha256 "734e7bf0f6a890af9c74db310e20dd8f7a212c4e81bb9155b69ac915453bcbfd"
+  end
+
+  resource "sentence.bin" do
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-09/sentence.bin"
+    sha256 "0a493906b2ca8edb844d7a2a1bfb2f0328ea615e2625e9dae0a05db791b8e017"
   end
 
   def install
@@ -43,8 +48,8 @@ class Fcitx5Projectkey < Formula
     ENV.delete "PKG_CONFIG_PATH"
     (buildpath/"mcbopomofo").install resource("mcbopomofo")
     # CMakeLists.txt installs them, with their notice, from the trainer's cache.
-    %w[data.txt bigram.bin chars.bin].each { |file| (buildpath/"tools/bigram-trainer/.cache").install resource(file) }
-    (buildpath/"tools/bigram-trainer/.cache/models-version.txt").write "2026-11-07\n"  # as fetch-models.sh records it
+    %w[data.txt bigram.bin chars.bin sentence.bin].each { |file| (buildpath/"tools/bigram-trainer/.cache").install resource(file) }
+    (buildpath/"tools/bigram-trainer/.cache/models-version.txt").write "2026-11-09\n"  # as fetch-models.sh records it
     system "make", "-C", "mcbopomofo/Source/Data", "data.txt"
     system "cmake", "-S", "platforms/linux", "-B", "build", "-G", "Ninja",
            "-DCMAKE_C_COMPILER=/usr/bin/cc", "-DCMAKE_CXX_COMPILER=/usr/bin/c++",
