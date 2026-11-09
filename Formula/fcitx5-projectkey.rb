@@ -1,8 +1,8 @@
 class Fcitx5Projectkey < Formula
   desc "Zhuyin input method for Fcitx5"
   homepage "https://github.com/KoukeNeko/Project-Key"
-  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "b5cc846dc79366d725e6448445c8d8f6ac43822e19c13e72836baedd3dbccaab"
+  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "600a8d706d1924189b6f3abbf9f18677e7464fbc8d4c930cc1dd1424ac5ad948"
   license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later"]  # the program; bigram.bin, chars.bin and sentence.bin; data.txt
 
   livecheck do
