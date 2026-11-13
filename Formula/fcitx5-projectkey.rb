@@ -1,9 +1,9 @@
 class Fcitx5Projectkey < Formula
   desc "Zhuyin input method for Fcitx5"
   homepage "https://github.com/KoukeNeko/Project-Key"
-  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "3d6e4b9e496962b2d508bffd90803574d6c5253172dcf1b6e72bfa37d245c163"
-  license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later"]  # the program; bigram.bin, chars.bin and sentence.bin; data.txt
+  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "54762a9bf9cccb6102a8e3361feb7d3283c571c3e36539bbe8fa8a2320495108"
+  license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later", "Unicode-3.0"]  # the program; bigram.bin, chars.bin and sentence.bin; data.txt; emoji.txt
 
   livecheck do
     url :stable
@@ -50,7 +50,7 @@ class Fcitx5Projectkey < Formula
     # CMakeLists.txt installs them, with their notice, from the trainer's cache.
     %w[data.txt bigram.bin chars.bin sentence.bin].each { |file| (buildpath/"tools/bigram-trainer/.cache").install resource(file) }
     (buildpath/"tools/bigram-trainer/.cache/models-version.txt").write "2026-11-09\n"  # as fetch-models.sh records it
-    system "make", "-C", "mcbopomofo/Source/Data", "data.txt"
+    system "make", "-C", "mcbopomofo/Source/Data", "data.txt", "associated-phrases-v2.txt"
     system "cmake", "-S", "platforms/linux", "-B", "build", "-G", "Ninja",
            "-DCMAKE_C_COMPILER=/usr/bin/cc", "-DCMAKE_CXX_COMPILER=/usr/bin/c++",
            "-DMCBOPOMOFO=#{buildpath}/mcbopomofo", "-DREQUIRE_MODELS=ON", *std_cmake_args
