@@ -1,8 +1,8 @@
 class Fcitx5Projectkey < Formula
   desc "Zhuyin input method for Fcitx5"
   homepage "https://github.com/KoukeNeko/Project-Key"
-  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "a6365cf05c6fdd49597d228ccce69942f99f291b0ae24d3d563211ae81b63c6f"
+  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "270ed3e04f961c46dfdc7a8525880040dc222e9aa4af232a3f9fa3110ec981cd"
   license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later", "Unicode-3.0"]  # the program; bigram.bin, chars.bin and sentence.bin; data.txt; emoji.txt
 
   livecheck do
@@ -17,6 +17,11 @@ class Fcitx5Projectkey < Formula
   resource "mcbopomofo" do
     url "https://github.com/openvanilla/McBopomofo/archive/257da536ddaf590aae0e74e6adb9b415988344f6.tar.gz"
     sha256 "77b7b67a90c0adfaf4ff884ca74d29c663ee961c13656d922ead864f66cdd09e"
+  end
+
+  resource "llama.cpp" do
+    url "https://github.com/ggml-org/llama.cpp/archive/refs/tags/b12283.tar.gz"
+    sha256 "1e951b20323b74a502e086d292c4127051820950c1ab3876fdd065c21890bde8"
   end
 
   resource "data.txt" do
@@ -47,13 +52,15 @@ class Fcitx5Projectkey < Formula
       Utils.safe_popen_read("/usr/bin/pkg-config", "--variable", "pc_path", "pkg-config").strip
     ENV.delete "PKG_CONFIG_PATH"
     (buildpath/"mcbopomofo").install resource("mcbopomofo")
+    (buildpath/"llama.cpp").install resource("llama.cpp")  # the advanced model's
     # CMakeLists.txt installs them, with their notice, from the trainer's cache.
     %w[data.txt bigram.bin chars.bin sentence.bin].each { |file| (buildpath/"tools/bigram-trainer/.cache").install resource(file) }
     (buildpath/"tools/bigram-trainer/.cache/models-version.txt").write "2026-11-14\n"  # as fetch-models.sh records it
     system "make", "-C", "mcbopomofo/Source/Data", "data.txt", "associated-phrases-v2.txt"
     system "cmake", "-S", "platforms/linux", "-B", "build", "-G", "Ninja",
            "-DCMAKE_C_COMPILER=/usr/bin/cc", "-DCMAKE_CXX_COMPILER=/usr/bin/c++",
-           "-DMCBOPOMOFO=#{buildpath}/mcbopomofo", "-DREQUIRE_MODELS=ON", *std_cmake_args
+           "-DMCBOPOMOFO=#{buildpath}/mcbopomofo", "-DREQUIRE_MODELS=ON",
+           "-DPROJECTKEY_LLAMA=#{buildpath}/llama.cpp", *std_cmake_args
     system "cmake", "--build", "build"
     %w[ComposerTest ControllerTest].each { |test| system "build/#{test}", "mcbopomofo/Source/Data/data.txt" }
     system "cmake", "--install", "build"
