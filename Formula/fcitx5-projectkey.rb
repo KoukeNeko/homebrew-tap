@@ -1,8 +1,8 @@
 class Fcitx5Projectkey < Formula
   desc "Zhuyin input method for Fcitx5"
   homepage "https://github.com/KoukeNeko/Project-Key"
-  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "03c1a0133a07fd9ce45c7f83237ec53d451a1f38a7a2b3d4df0bc66bf1121bd1"
+  url "https://github.com/KoukeNeko/Project-Key/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "94b3e567c484fe2cfa65839e99e69323efde0260d4982fe4e61ee7aab928bfdc"
   license all_of: ["MIT", "CC-BY-SA-4.0", "LGPL-2.1-or-later", "Unicode-3.0", "Apache-2.0"]  # the program; bigram.bin, chars.bin and sentence.bin; data.txt; emoji.txt; TSCharacters.txt
 
   livecheck do
@@ -25,23 +25,23 @@ class Fcitx5Projectkey < Formula
   end
 
   resource "data.txt" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-14/data.txt"
-    sha256 "98b7a871007023af6847e93e85481598149b4444aabecf9fb2dd037aef99f76a"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-27/data.txt"
+    sha256 "7e329eb5a496969dfd7df34910e88f40d2fae7baacdc89f687658f855a6c3a5a"
   end
 
   resource "bigram.bin" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-14/bigram.bin"
-    sha256 "547f3b61c0ce80e2ccbc2706efb265fc82bc6b820fef6fd6495d7bf2ce0065fb"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-27/bigram.bin"
+    sha256 "bff91ebb8910cf6265a28c27b266bbf8b09f2e0f72423b17a8969cfd91df5b95"
   end
 
   resource "chars.bin" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-14/chars.bin"
-    sha256 "734e7bf0f6a890af9c74db310e20dd8f7a212c4e81bb9155b69ac915453bcbfd"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-27/chars.bin"
+    sha256 "dbdff0b7159d72833f86e455edcb48655129f58a9b29e8108cf90b43d8a375ac"
   end
 
   resource "sentence.bin" do
-    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-14/sentence.bin"
-    sha256 "5e32a1dda47e894b027879c078abead93c51845874d3783af5599b35723a1a65"
+    url "https://github.com/KoukeNeko/Project-Key/releases/download/models-2026-11-27/sentence.bin"
+    sha256 "6708f36fb538c788d49495b9a042abe6d54ebf2a7d4cb44be6103afd0034fa7f"
   end
 
   def install
@@ -55,7 +55,7 @@ class Fcitx5Projectkey < Formula
     (buildpath/"llama.cpp").install resource("llama.cpp")  # the advanced model's
     # CMakeLists.txt installs them, with their notice, from the trainer's cache.
     %w[data.txt bigram.bin chars.bin sentence.bin].each { |file| (buildpath/"tools/bigram-trainer/.cache").install resource(file) }
-    (buildpath/"tools/bigram-trainer/.cache/models-version.txt").write "2026-11-14\n"  # as fetch-models.sh records it
+    (buildpath/"tools/bigram-trainer/.cache/models-version.txt").write "2026-11-27\n"  # as fetch-models.sh records it
     system "make", "-C", "mcbopomofo/Source/Data", "data.txt", "associated-phrases-v2.txt"
     system "cmake", "-S", "platforms/linux", "-B", "build", "-G", "Ninja",
            "-DCMAKE_C_COMPILER=/usr/bin/cc", "-DCMAKE_CXX_COMPILER=/usr/bin/c++",
